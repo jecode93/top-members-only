@@ -1,5 +1,11 @@
 <h2>Log in</h2>
 
+<% if alert %>
+  <div class="alert alert-warning alert-dismissible fade show mt-2 col-md-6" role="alert">
+    <span class="notice"><%= alert %></span>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+<% end %>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="form-group mt-2 col-md-4">
     <%= f.label :email, class:"form-label" %><br />
