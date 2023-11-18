@@ -1,8 +1,23 @@
 <% if user_signed_in? %>
-  <h1><strong>Welcome <%= current_user.name %></strong></h1>
-<% end %>
-
+<h1 class="mb-5">Welcome back <%= current_user.name %></h1>
 <% @posts.each do |post| %>
-	<h2><%= post.title %></h2>
-	<p><%= post.body %></p>
-<% end %>
+<div class="card m-2">
+  <div class="card-body">
+    <h2><%= post.title %></h2>
+    <p><%= post.body %></p>
+    <small>Post by: <%= post.user.name %></small>
+  </div>
+</div>
+
+<% end %> <% else %>
+
+<h1 class="mb-5">Welcome to member only app</h1>
+<% @posts.each do |post| %>
+<div class="card m-2">
+  <div class="card-body">
+    <h2><%= post.title %></h2>
+    <p><%= post.body %></p>
+  </div>
+</div>
+
+<% end %> <% end %>
